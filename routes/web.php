@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,18 @@ Route::get('/dashboard', function () {
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+
+// Group route dengan middleware auth agar hanya user login yang bisa akses
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+//     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::get('/api/user', [ProfileController::class, 'getCurrentUser'])->name('profile.user');
+// });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/current', [ProfileController::class, 'getCurrentProfile'])->name('profile.current');
+});

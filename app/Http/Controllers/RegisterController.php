@@ -49,6 +49,23 @@ class RegisterController extends Controller
             'terms_agreed' => $request->has('terms'),
         ]);
 
+{
+    $user = User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+    ]);
+
+    Profile::create([
+        'user_id' => $user->id,
+        'username' => $data['name'],
+        'NIM' => $data['NIM'], // Add NIM to registration form
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+    ]);
+
+    return $user;
+}
         // Log user masuk setelah registrasi
         auth()->login($user);
 

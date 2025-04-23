@@ -43,19 +43,22 @@
         <div class="flex-1 p-8">
             <!-- Header -->
             <div class="flex justify-between items-center mb-8">
-                <div>
-                    <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
-                    <p class="text-gray-500">Selamat datang di Sistem SSO UIN Jakarta</p>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                            12
-                        </div>
-                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></span>
-                    </div>
-                </div>
-            </div>
+    <div>
+        <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+        <p class="text-gray-500">Selamat datang di Sistem SSO UIN Jakarta</p>
+    </div>
+    <div class="flex items-center space-x-4">
+        <!-- Notifikasi -->
+
+        <!-- Navigasi bulat -->
+        <a href="/profile" class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-blue-500 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7.5 7.5 0 0112 15.5a7.5 7.5 0 016.879 2.304M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+        </a>
+    </div>
+</div>
+
 
             <!-- Welcome Section -->
             <div class="gradient-bg text-white rounded-2xl p-6 mb-8 shadow-lg">
