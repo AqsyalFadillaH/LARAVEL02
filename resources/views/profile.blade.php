@@ -436,7 +436,7 @@
                 document.getElementById('edit-username').value = profile.username || '';
                 document.getElementById('edit-nim').value = profile.NIM || '';
                 document.getElementById('edit-email').value = profile.email || '';
-                document.getElementById('edit-date').value = profile.birthdate ? new Date(profile.birthdate).toISOString().split('T')[0] : '';
+                document.getElementById('view-birthdate').textContent = profile.birthdate? new Date(profile.birthdate).toISOString().split('T')[0] : 'Not set';
                 const genderSelect = document.getElementById('edit-gender');
                 Array.from(genderSelect.options).forEach(option => {
                     option.selected = option.value === profile.gender;
@@ -453,7 +453,7 @@
                 document.getElementById('view-username').textContent = profile.username || 'Not set';
                 document.getElementById('view-nim').textContent = profile.NIM || 'Not set';
                 document.getElementById('view-email').textContent = profile.email || 'Not set';
-                document.getElementById('view-birthdate').textContent = profile.birthdate || 'Not set';
+                document.getElementById('view-birthdate').textContent = profile.birthdate? new Date(profile.birthdate).toISOString().split('T')[0] : 'Not set';
                 document.getElementById('view-gender').textContent = profile.gender ? profile.gender.charAt(0).toUpperCase() + profile.gender.slice(1) : 'Not set';
                 document.getElementById('view-faculty').textContent = profile.faculty || 'Not set';
                 document.getElementById('view-major').textContent = profile.major || 'Not set';
