@@ -3,17 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use Notifiable;
+
     protected $fillable = [
-        'name', // Default field in users table
-        'email', // Default field in users table
-        'password', // Default field in users table
+        'username',
+        'NIM',
+        'email',
+        'password',
+        'terms_agreed',
     ];
 
-    public function profile()
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    public function profiles()
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(Profiles::class, 'user_id');
     }
 }

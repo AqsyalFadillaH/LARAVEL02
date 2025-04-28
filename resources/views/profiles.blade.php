@@ -12,7 +12,7 @@
             background-color: #f5f7fa;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
-        .profile-card {
+        .profiles-card {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
@@ -54,13 +54,13 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
     <div class="max-w-4xl w-full mx-auto">
-        <div class="profile-card bg-white rounded-2xl overflow-hidden">
+        <div class="profiles-card bg-white rounded-2xl overflow-hidden">
             <!-- Header -->
             <div class="animated-gradient p-8">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-bold text-white flex items-center">
                         <i class="fas fa-user-circle mr-2"></i>
-                        Profile
+                        Profiles
                     </h1>
                     <div id="action-buttons">
                         <button 
@@ -68,7 +68,7 @@
                             class="flex items-center gap-2 bg-white/90 text-blue-600 px-5 py-2.5 rounded-lg font-medium hover:bg-white transition-colors shadow-md"
                         >
                             <i class="fas fa-pencil-alt"></i>
-                            Edit Profile
+                            Edit Profiles
                         </button>
                         <div id="save-cancel-buttons" class="hidden gap-3 flex">
                             <button 
@@ -95,21 +95,21 @@
                         </div>
                     </div>
                     <div class="ml-6">
-                        <h2 id="header-username" class="text-3xl font-bold text-white">{{ $profile->username ?? 'Not set' }}</h2>
+                        <h2 id="header-username" class="text-3xl font-bold text-white">{{ $profiles->username ?? 'Not set' }}</h2>
                         <div class="flex items-center mt-2 text-blue-100">
                             <span id="header-nim" class="bg-blue-800/50 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mr-3">
-                                {{ $profile->NIM ?? 'Not set' }}
+                                {{ $profiles->NIM ?? 'Not set' }}
                             </span>
                             <span id="header-major" class="flex items-center">
                                 <i class="fas fa-graduation-cap mr-2"></i>
-                                {{ $profile->major ?? 'Not set' }}
+                                {{ $profiles->major ?? 'Not set' }}
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Profile Content -->
+            <!-- Profiles Content -->
             <div class="p-8">
                 <!-- View Mode -->
                 <div id="view-mode" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -118,7 +118,7 @@
                             <i class="fas fa-user text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Username</h3>
                         </div>
-                        <p id="view-username" class="text-gray-800 font-medium text-lg">{{ $profile->username ?? 'Not set' }}</p>
+                        <p id="view-username" class="text-gray-800 font-medium text-lg">{{ $profiles->username ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -126,7 +126,7 @@
                             <i class="fas fa-id-card text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">NIM</h3>
                         </div>
-                        <p id="view-nim" class="text-gray-800 font-medium text-lg">{{ $profile->NIM ?? 'Not set' }}</p>
+                        <p id="view-nim" class="text-gray-800 font-medium text-lg">{{ $profiles->NIM ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -134,7 +134,7 @@
                             <i class="fas fa-envelope text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Email</h3>
                         </div>
-                        <p id="view-email" class="text-gray-800 font-medium text-lg">{{ $profile->email ?? 'Not set' }}</p>
+                        <p id="view-email" class="text-gray-800 font-medium text-lg">{{ $profiles->email ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -142,7 +142,7 @@
                             <i class="fas fa-calendar text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Birthdate</h3>
                         </div>
-                        <p id="view-birthdate" class="text-gray-800 font-medium text-lg">{{ $profile->date ?? 'Not set' }}</p>
+                        <p id="view-birthdate" class="text-gray-800 font-medium text-lg">{{ $profiles->birthdate ? $profiles->birthdate->format('Y-m-d') : 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -150,7 +150,7 @@
                             <i class="fas fa-venus-mars text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Gender</h3>
                         </div>
-                        <p id="view-gender" class="text-gray-800 font-medium text-lg capitalize">{{ $profile->gender ?? 'Not set' }}</p>
+                        <p id="view-gender" class="text-gray-800 font-medium text-lg capitalize">{{ $profiles->gender ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -158,7 +158,7 @@
                             <i class="fas fa-university text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Faculty</h3>
                         </div>
-                        <p id="view-faculty" class="text-gray-800 font-medium text-lg">{{ $profile->faculty ?? 'Not set' }}</p>
+                        <p id="view-faculty" class="text-gray-800 font-medium text-lg">{{ $profiles->faculty ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl md:col-span-2">
@@ -166,7 +166,7 @@
                             <i class="fas fa-book text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Major</h3>
                         </div>
-                        <p id="view-major" class="text-gray-800 font-medium text-lg">{{ $profile->major ?? 'Not set' }}</p>
+                        <p id="view-major" class="text-gray-800 font-medium text-lg">{{ $profiles->major ?? 'Not set' }}</p>
                     </div>
                 </div>
 
@@ -181,7 +181,7 @@
                                 type="text"
                                 id="edit-username"
                                 name="username"
-                                value="{{ $profile->username ?? '' }}"
+                                value="{{ $profiles->username ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-username text-xs text-red-500 mt-1.5 hidden"></p>
@@ -196,7 +196,7 @@
                                 type="text"
                                 id="edit-nim"
                                 name="NIM"
-                                value="{{ $profile->NIM ?? '' }}"
+                                value="{{ $profiles->NIM ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-NIM text-xs text-red-500 mt-1.5 hidden"></p>
@@ -211,7 +211,7 @@
                                 type="email"
                                 id="edit-email"
                                 name="email"
-                                value="{{ $profile->email ?? '' }}"
+                                value="{{ $profiles->email ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-email text-xs text-red-500 mt-1.5 hidden"></p>
@@ -222,13 +222,13 @@
                         <label class="block text-sm font-medium text-gray-700">Birthdate</label>
                         <div class="relative">
                             <i class="fas fa-calendar absolute left-3 top-3.5 text-gray-400"></i>
-                            
                             <input
-                            type="date"
-                            id="edit-date"
-                            name="birthdate"
-                            value="{{ $profile->birthdate ? $profile->birthdate->format('Y-m-d') : '' }}"
-                            class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"/>
+                                type="date"
+                                id="edit-date"
+                                name="birthdate"
+                                value="{{ $profiles->birthdate ? $profiles->birthdate->format('Y-m-d') : '' }}"
+                                class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
+                            />
                             <p class="error-birthdate text-xs text-red-500 mt-1.5 hidden"></p>
                         </div>
                     </div>
@@ -242,10 +242,10 @@
                                 name="gender"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             >
-                                <option value="" {{ !$profile->gender ? 'selected' : '' }}>Select Gender</option>
-                                <option value="male" {{ $profile->gender == 'male' ? 'selected' : '' }}>Male</option>
-                                <option value="female" {{ $profile->gender == 'female' ? 'selected' : '' }}>Female</option>
-                                <option value="other" {{ $profile->gender == 'other' ? 'selected' : '' }}>Other</option>
+                                <option value="" {{ !$profiles->gender ? 'selected' : '' }}>Select Gender</option>
+                                <option value="male" {{ $profiles->gender == 'male' ? 'selected' : '' }}>Male</option>
+                                <option value="female" {{ $profiles->gender == 'female' ? 'selected' : '' }}>Female</option>
+                                <option value="other" {{ $profiles->gender == 'other' ? 'selected' : '' }}>Other</option>
                             </select>
                             <p class="error-gender text-xs text-red-500 mt-1.5 hidden"></p>
                         </div>
@@ -259,7 +259,7 @@
                                 type="text"
                                 id="edit-faculty"
                                 name="faculty"
-                                value="{{ $profile->faculty ?? '' }}"
+                                value="{{ $profiles->faculty ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-faculty text-xs text-red-500 mt-1.5 hidden"></p>
@@ -274,7 +274,7 @@
                                 type="text"
                                 id="edit-major"
                                 name="major"
-                                value="{{ $profile->major ?? '' }}"
+                                value="{{ $profiles->major ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-major text-xs text-red-500 mt-1.5 hidden"></p>
@@ -338,9 +338,12 @@
             const headerNim = document.getElementById('header-nim');
             const headerMajor = document.getElementById('header-major');
 
+            // Fetch profiles data on page load
+            fetchProfilesData();
+
             // Show edit mode
             editButton.addEventListener('click', () => {
-                fetchProfileData();
+                fetchProfilesData();
                 editMode.classList.remove('hidden');
                 viewMode.classList.add('hidden');
                 editButton.classList.add('hidden');
@@ -371,7 +374,7 @@
                 const formData = new FormData(document.getElementById('edit-mode'));
                 
                 try {
-                    const response = await fetch('/profile', {
+                    const response = await fetch('/profiles', {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken,
@@ -383,7 +386,7 @@
                     const data = await response.json();
                     
                     if (response.ok) {
-                        updateProfileInterface(data.profile);
+                        updateProfilesInterface(data.profiles);
                         document.getElementById('edit-password').value = '';
                         document.getElementById('edit-password-confirm').value = '';
                         showStatusMessage(data.message, 'success');
@@ -405,14 +408,14 @@
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    showStatusMessage('An error occurred while updating your profile.', 'error');
+                    showStatusMessage('An error occurred while updating your profiles.', 'error');
                 }
             });
 
-            // Fetch profile data
-            async function fetchProfileData() {
+            // Fetch profiles data
+            async function fetchProfilesData() {
                 try {
-                    const response = await fetch('/profile/current', {
+                    const response = await fetch('/profiles/current', {
                         method: 'GET',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken,
@@ -423,40 +426,42 @@
                     if (response.ok) {
                         const data = await response.json();
                         if (data.status === 'success') {
-                            updateFormFields(data.profile);
+                            updateFormFields(data.profiles);
+                            updateProfilesInterface(data.profiles); // Update interface with fetched data
                         }
                     }
                 } catch (error) {
-                    console.error('Error fetching profile data:', error);
+                    console.error('Error fetching profiles data:', error);
+                    showStatusMessage('Failed to load profile data.', 'error');
                 }
             }
 
-            // Update form fields with profile data
-            function updateFormFields(profile) {
-                document.getElementById('edit-username').value = profile.username || '';
-                document.getElementById('edit-nim').value = profile.NIM || '';
-                document.getElementById('edit-email').value = profile.email || '';
-                document.getElementById('view-birthdate').textContent = profile.birthdate? new Date(profile.birthdate).toISOString().split('T')[0] : 'Not set';
+            // Update form fields with profiles data
+            function updateFormFields(profiles) {
+                document.getElementById('edit-username').value = profiles.username || '';
+                document.getElementById('edit-nim').value = profiles.NIM || '';
+                document.getElementById('edit-email').value = profiles.email || '';
+                document.getElementById('edit-date').value = profiles.birthdate || '';
                 const genderSelect = document.getElementById('edit-gender');
                 Array.from(genderSelect.options).forEach(option => {
-                    option.selected = option.value === profile.gender;
+                    option.selected = option.value === profiles.gender;
                 });
-                document.getElementById('edit-faculty').value = profile.faculty || '';
-                document.getElementById('edit-major').value = profile.major || '';
+                document.getElementById('edit-faculty').value = profiles.faculty || '';
+                document.getElementById('edit-major').value = profiles.major || '';
             }
 
-            // Update profile interface with new data
-            function updateProfileInterface(profile) {
-                headerUsername.textContent = profile.username || 'Not set';
-                headerNim.textContent = profile.NIM || 'Not set';
-                headerMajor.textContent = profile.major || 'Not set';
-                document.getElementById('view-username').textContent = profile.username || 'Not set';
-                document.getElementById('view-nim').textContent = profile.NIM || 'Not set';
-                document.getElementById('view-email').textContent = profile.email || 'Not set';
-                document.getElementById('view-birthdate').textContent = profile.birthdate? new Date(profile.birthdate).toISOString().split('T')[0] : 'Not set';
-                document.getElementById('view-gender').textContent = profile.gender ? profile.gender.charAt(0).toUpperCase() + profile.gender.slice(1) : 'Not set';
-                document.getElementById('view-faculty').textContent = profile.faculty || 'Not set';
-                document.getElementById('view-major').textContent = profile.major || 'Not set';
+            // Update profiles interface with new data
+            function updateProfilesInterface(profiles) {
+                headerUsername.textContent = profiles.username || 'Not set';
+                headerNim.textContent = profiles.NIM || 'Not set';
+                headerMajor.textContent = profiles.major || 'Not set';
+                document.getElementById('view-username').textContent = profiles.username || 'Not set';
+                document.getElementById('view-nim').textContent = profiles.NIM || 'Not set';
+                document.getElementById('view-email').textContent = profiles.email || 'Not set';
+                document.getElementById('view-birthdate').textContent = profiles.birthdate || 'Not set';
+                document.getElementById('view-gender').textContent = profiles.gender ? profiles.gender.charAt(0).toUpperCase() + profiles.gender.slice(1) : 'Not set';
+                document.getElementById('view-faculty').textContent = profiles.faculty || 'Not set';
+                document.getElementById('view-major').textContent = profiles.major || 'Not set';
             }
 
             // Show status message
