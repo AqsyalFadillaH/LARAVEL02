@@ -63,7 +63,7 @@
                         Profiles
                     </h1>
                     <div id="action-buttons">
-                        <button 
+                        <button
                             id="edit-button"
                             class="flex items-center gap-2 bg-white/90 text-blue-600 px-5 py-2.5 rounded-lg font-medium hover:bg-white transition-colors shadow-md"
                         >
@@ -71,14 +71,14 @@
                             Edit Profiles
                         </button>
                         <div id="save-cancel-buttons" class="hidden gap-3 flex">
-                            <button 
+                            <button
                                 id="cancel-button"
                                 class="flex items-center gap-2 bg-white/90 text-gray-600 px-5 py-2.5 rounded-lg font-medium hover:bg-white transition-colors shadow-md"
                             >
                                 <i class="fas fa-times"></i>
                                 Cancel
                             </button>
-                            <button 
+                            <button
                                 id="save-button"
                                 class="flex items-center gap-2 bg-emerald-500 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-emerald-600 transition-colors shadow-md"
                             >
@@ -95,10 +95,10 @@
                         </div>
                     </div>
                     <div class="ml-6">
-                        <h2 id="header-username" class="text-3xl font-bold text-white">{{ $profiles->username ?? 'Not set' }}</h2>
+                        <h2 id="header-username" class="text-3xl font-bold text-white">{{ $user->username ?? 'Not set' }}</h2>
                         <div class="flex items-center mt-2 text-blue-100">
                             <span id="header-nim" class="bg-blue-800/50 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium mr-3">
-                                {{ $profiles->NIM ?? 'Not set' }}
+                                {{ $user->NIM ?? 'Not set' }}
                             </span>
                             <span id="header-major" class="flex items-center">
                                 <i class="fas fa-graduation-cap mr-2"></i>
@@ -118,7 +118,7 @@
                             <i class="fas fa-user text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Username</h3>
                         </div>
-                        <p id="view-username" class="text-gray-800 font-medium text-lg">{{ $profiles->username ?? 'Not set' }}</p>
+                        <p id="view-username" class="text-gray-800 font-medium text-lg">{{ $user->username ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -126,7 +126,7 @@
                             <i class="fas fa-id-card text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">NIM</h3>
                         </div>
-                        <p id="view-nim" class="text-gray-800 font-medium text-lg">{{ $profiles->NIM ?? 'Not set' }}</p>
+                        <p id="view-nim" class="text-gray-800 font-medium text-lg">{{ $user->NIM ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -134,7 +134,7 @@
                             <i class="fas fa-envelope text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Email</h3>
                         </div>
-                        <p id="view-email" class="text-gray-800 font-medium text-lg">{{ $profiles->email ?? 'Not set' }}</p>
+                        <p id="view-email" class="text-gray-800 font-medium text-lg">{{ $user->email ?? 'Not set' }}</p>
                     </div>
 
                     <div class="field-container bg-gray-50 p-5 rounded-xl">
@@ -181,7 +181,7 @@
                                 type="text"
                                 id="edit-username"
                                 name="username"
-                                value="{{ $profiles->username ?? '' }}"
+                                value="{{ $user->username ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-username text-xs text-red-500 mt-1.5 hidden"></p>
@@ -196,7 +196,7 @@
                                 type="text"
                                 id="edit-nim"
                                 name="NIM"
-                                value="{{ $profiles->NIM ?? '' }}"
+                                value="{{ $user->NIM ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-NIM text-xs text-red-500 mt-1.5 hidden"></p>
@@ -211,7 +211,7 @@
                                 type="email"
                                 id="edit-email"
                                 name="email"
-                                value="{{ $profiles->email ?? '' }}"
+                                value="{{ $user->email ?? '' }}"
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-email text-xs text-red-500 mt-1.5 hidden"></p>
@@ -280,37 +280,6 @@
                             <p class="error-major text-xs text-red-500 mt-1.5 hidden"></p>
                         </div>
                     </div>
-
-                    <div class="space-y-2">
-                        <label class="block text-sm font-medium text-gray-700">New Password</label>
-                        <div class="relative">
-                            <i class="fas fa-key absolute left-3 top-3.5 text-gray-400"></i>
-                            <input
-                                type="password"
-                                id="edit-password"
-                                name="password"
-                                placeholder="••••••••"
-                                class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
-                            />
-                            <p class="text-xs text-gray-500 mt-1.5">Leave blank to keep current password</p>
-                            <p class="error-password text-xs text-red-500 mt-1.5 hidden"></p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="block text-sm font-medium text-gray-700">Confirm New Password</label>
-                        <div class="relative">
-                            <i class="fas fa-key absolute left-3 top-3.5 text-gray-400"></i>
-                            <input
-                                type="password"
-                                id="edit-password-confirm"
-                                name="password_confirmation"
-                                placeholder="••••••••"
-                                class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
-                            />
-                            <p class="error-password_confirmation text-xs text-red-500 mt-1.5 hidden"></p>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
@@ -323,7 +292,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Set CSRF token for all AJAX requests
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            
+
             // Elements
             const viewMode = document.getElementById('view-mode');
             const editMode = document.getElementById('edit-mode');
@@ -332,7 +301,7 @@
             const cancelButton = document.getElementById('cancel-button');
             const saveButtons = document.getElementById('save-cancel-buttons');
             const statusMessage = document.getElementById('status-message');
-            
+
             // Header elements
             const headerUsername = document.getElementById('header-username');
             const headerNim = document.getElementById('header-nim');
@@ -360,19 +329,20 @@
                     el.classList.add('hidden');
                     el.textContent = '';
                 });
-                document.getElementById('edit-password').value = '';
-                document.getElementById('edit-password-confirm').value = '';
             });
 
             // Save changes
             saveButton.addEventListener('click', async () => {
+                saveButton.disabled = true;
+                saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
                 document.querySelectorAll('.text-red-500').forEach(el => {
                     el.classList.add('hidden');
                     el.textContent = '';
                 });
-                
+
                 const formData = new FormData(document.getElementById('edit-mode'));
-                
+                console.log('Sending update request with data:', Object.fromEntries(formData));
+
                 try {
                     const response = await fetch('/profiles', {
                         method: 'POST',
@@ -382,13 +352,13 @@
                         },
                         body: formData
                     });
-                    
+
+                    console.log('Response status:', response.status);
                     const data = await response.json();
-                    
+                    console.log('Response data:', data);
+
                     if (response.ok) {
                         updateProfilesInterface(data.profiles);
-                        document.getElementById('edit-password').value = '';
-                        document.getElementById('edit-password-confirm').value = '';
                         showStatusMessage(data.message, 'success');
                         editMode.classList.add('hidden');
                         viewMode.classList.remove('hidden');
@@ -396,6 +366,7 @@
                         saveButtons.classList.add('hidden');
                     } else {
                         if (data.errors) {
+                            console.log('Validation errors:', data.errors);
                             Object.keys(data.errors).forEach(field => {
                                 const errorElement = document.querySelector(`.error-${field}`);
                                 if (errorElement) {
@@ -404,17 +375,21 @@
                                 }
                             });
                         }
-                        showStatusMessage('There were errors in your submission. Please check the form.', 'error');
+                        showStatusMessage(data.message || 'There were errors in your submission. Please check the form.', 'error');
                     }
                 } catch (error) {
-                    console.error('Error:', error);
-                    showStatusMessage('An error occurred while updating your profiles.', 'error');
+                    console.error('Fetch error:', error);
+                    showStatusMessage('An error occurred while updating your profile. Please try again.', 'error');
+                } finally {
+                    saveButton.disabled = false;
+                    saveButton.innerHTML = '<i class="fas fa-check"></i> Save Changes';
                 }
             });
 
             // Fetch profiles data
             async function fetchProfilesData() {
                 try {
+                    console.log('Fetching profile data...');
                     const response = await fetch('/profiles/current', {
                         method: 'GET',
                         headers: {
@@ -422,17 +397,20 @@
                             'Accept': 'application/json'
                         }
                     });
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (data.status === 'success') {
-                            updateFormFields(data.profiles);
-                            updateProfilesInterface(data.profiles); // Update interface with fetched data
-                        }
+
+                    console.log('Fetch response status:', response.status);
+                    const data = await response.json();
+                    console.log('Fetch response data:', data);
+
+                    if (response.ok && data.status === 'success') {
+                        updateFormFields(data.profiles);
+                        updateProfilesInterface(data.profiles);
+                    } else {
+                        showStatusMessage('Failed to load profile data.', 'error');
                     }
                 } catch (error) {
                     console.error('Error fetching profiles data:', error);
-                    showStatusMessage('Failed to load profile data.', 'error');
+                    showStatusMessage('Failed to load profile data. Please try again.', 'error');
                 }
             }
 
@@ -444,7 +422,7 @@
                 document.getElementById('edit-date').value = profiles.birthdate || '';
                 const genderSelect = document.getElementById('edit-gender');
                 Array.from(genderSelect.options).forEach(option => {
-                    option.selected = option.value === profiles.gender;
+                    option.selected = option.value === (profiles.gender || '');
                 });
                 document.getElementById('edit-faculty').value = profiles.faculty || '';
                 document.getElementById('edit-major').value = profiles.major || '';

@@ -17,8 +17,8 @@ class Profiles extends Model
     ];
 
     protected $casts = [
-        'birthdate' => 'date:Y-m-d',
-        'gender' => 'string',
+       'birthdate' => 'date',
+        'gender' => 'string', // Treat enum as string
     ];
 
     public function user()

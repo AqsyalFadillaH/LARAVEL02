@@ -19,7 +19,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+
+            // Periksa status ver      // Periksa apakah pengguna sudah diverifikasi
+            if (!Auth::user()->is_verified) {
+                return redirect()->route('verification.notice');
+            }
+
+            // Jika sudah diverifikasi, arahkan ke dashboard
+            return redirect()->intended(route('dashboard'));
         }
 
         return back()->withErrors([
