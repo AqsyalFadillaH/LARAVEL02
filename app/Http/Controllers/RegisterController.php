@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'major' => $request->major,
             'terms_agreed' => $request->has('terms'),
             'is_verified' => false, // User belum terverifikasi
+            'role_id' => 1, // Default role_id untuk mahasiswa
         ]);
 
         // Generate and send OTP immediately after registration

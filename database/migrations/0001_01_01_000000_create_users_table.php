@@ -10,11 +10,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('role_id')->constrained('roleuser')->onDelete('cascade');
             $table->string('username')->unique();
             $table->string('NIM')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('terms_agreed')->default(false);
+            $table->boolean('is_verified')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -32,7 +34,11 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        // Drop the foreign key constraint explicitly
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['role_id']);
+        });
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('users');
     }
 };

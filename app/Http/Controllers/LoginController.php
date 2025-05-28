@@ -20,7 +20,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            // Periksa status ver      // Periksa apakah pengguna sudah diverifikasi
+            // Periksa apakah pengguna sudah diverifikasi
             if (!Auth::user()->is_verified) {
                 return redirect()->route('verification.notice');
             }
@@ -33,7 +33,7 @@ class LoginController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ])->withInput($request->except('password'));
     }
-
+   
     public function logout(Request $request)
     {
         Auth::logout();

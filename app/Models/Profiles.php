@@ -14,6 +14,7 @@ class Profiles extends Model
         'gender',
         'faculty',
         'major',
+        'hobby',
     ];
 
     protected $casts = [

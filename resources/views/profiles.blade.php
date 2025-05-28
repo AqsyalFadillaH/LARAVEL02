@@ -161,12 +161,20 @@
                         <p id="view-faculty" class="text-gray-800 font-medium text-lg">{{ $profiles->faculty ?? 'Not set' }}</p>
                     </div>
 
-                    <div class="field-container bg-gray-50 p-5 rounded-xl md:col-span-2">
+                    <div class="field-container bg-gray-50 p-5 rounded-xl">
                         <div class="flex items-center mb-2">
                             <i class="fas fa-book text-blue-500 mr-2"></i>
                             <h3 class="text-sm font-medium text-gray-500">Major</h3>
                         </div>
                         <p id="view-major" class="text-gray-800 font-medium text-lg">{{ $profiles->major ?? 'Not set' }}</p>
+                    </div>
+
+                    <div class="field-container bg-gray-50 p-5 rounded-xl">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-heart text-blue-500 mr-2"></i>
+                            <h3 class="text-sm font-medium text-gray-500">Hobby</h3>
+                        </div>
+                        <p id="view-hobby" class="text-gray-800 font-medium text-lg">{{ $profiles->hobby ?? 'Not set' }}</p>
                     </div>
                 </div>
 
@@ -278,6 +286,21 @@
                                 class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
                             />
                             <p class="error-major text-xs text-red-500 mt-1.5 hidden"></p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Hobby</label>
+                        <div class="relative">
+                            <i class="fas fa-heart absolute left-3 top-3.5 text-gray-400"></i>
+                            <input
+                                type="text"
+                                id="edit-hobby"
+                                name="hobby"
+                                value="{{ $profiles->hobby ?? '' }}"
+                                class="input-field pl-10 w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none"
+                            />
+                            <p class="error-hobby text-xs text-red-500 mt-1.5 hidden"></p>
                         </div>
                     </div>
                 </form>
@@ -426,6 +449,7 @@
                 });
                 document.getElementById('edit-faculty').value = profiles.faculty || '';
                 document.getElementById('edit-major').value = profiles.major || '';
+                document.getElementById('edit-hobby').value = profiles.hobby || '';
             }
 
             // Update profiles interface with new data
@@ -440,6 +464,7 @@
                 document.getElementById('view-gender').textContent = profiles.gender ? profiles.gender.charAt(0).toUpperCase() + profiles.gender.slice(1) : 'Not set';
                 document.getElementById('view-faculty').textContent = profiles.faculty || 'Not set';
                 document.getElementById('view-major').textContent = profiles.major || 'Not set';
+                document.getElementById('view-hobby').textContent = profiles.hobby || 'Not set';
             }
 
             // Show status message

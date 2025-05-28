@@ -37,6 +37,7 @@ class ProfilesController extends Controller
             'gender' => ['nullable', 'in:male,female,other'],
             'faculty' => ['nullable', 'string', 'max:255'],
             'major' => ['nullable', 'string', 'max:255'],
+            'hobby' => ['nullable', 'string', 'max:255'],
         ]);
 
         if ($validator->fails()) {
@@ -64,6 +65,7 @@ class ProfilesController extends Controller
             $profiles->gender = $request->gender ?: null;
             $profiles->faculty = $request->faculty ?: null;
             $profiles->major = $request->major ?: null;
+            $profiles->hobby = $request->hobby ?: null;
             $profiles->user_id = $user->id;
             Log::debug('Attempting to save profile', ['profiles' => $profiles->toArray()]);
             if (!$profiles->save()) {
@@ -88,6 +90,7 @@ class ProfilesController extends Controller
                     'gender' => $profiles->gender,
                     'faculty' => $profiles->faculty,
                     'major' => $profiles->major,
+                    'hobby' => $profiles->hobby,
                 ],
             ]);
         } catch (\Exception $e) {
@@ -122,6 +125,7 @@ class ProfilesController extends Controller
                 'gender' => $profiles->gender,
                 'faculty' => $profiles->faculty,
                 'major' => $profiles->major,
+                'hobby' => $profiles->hobby,
             ],
         ]);
     }

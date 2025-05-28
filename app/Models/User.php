@@ -21,7 +21,8 @@ class User extends Authenticatable
         'email',
         'password',
         'terms_agreed',
-        'is_verified', // Tambahkan ini
+        'is_verified',
+        'role_id', // Added
     ];
 
     /**
@@ -42,11 +43,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'terms_agreed' => 'boolean',
-        'is_verified' => 'boolean', // Tambahkan ini
+        'is_verified' => 'boolean', // Added
     ];
 
     public function otps()
     {
         return $this->hasMany(Otp::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Roleuser::class, 'role_id', 'id');
     }
 }

@@ -35,13 +35,13 @@
             
             <nav class="mt-6 px-4 space-y-1" x-data="{ open: false }">
     <!-- Tombol Dashboard -->
-    <a href="#" class="flex items-center p-3 rounded-lg bg-blue-50 text-blue-700 w-full">
+    <a href="#" class="flex items-center p-3 rounded-lg bg-pink-50 text-pink-700 w-full">
         <i class="fas fa-th-large text-lg w-8"></i>
         <span class="font-medium">Dashboard</span>
     </a>
 
     <!-- Tombol Akademik -->
-    <button @click="open = !open" class="flex items-center justify-between p-3 rounded-lg hover:bg-blue-50 text-blue-700 w-full transition">
+    <button @click="open = !open" class="flex items-center justify-between p-3 rounded-lg hover:bg-pink-50 text-pink-700 w-full transition">
         <div class="flex items-center">
             <i class="fas fa-book text-lg w-8"></i>
             <span class="font-medium">Akademik</span>
@@ -81,7 +81,7 @@
 
 
             <!-- Welcome Section -->
-            <div class="gradient-bg text-white rounded-2xl p-6 mb-8 shadow-lg">
+            <div class="bg-pink-500 text-white rounded-2xl p-6 mb-8 shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <h2 class="text-2xl font-bold mb-2">Selamat Datang, {{ auth()->user()->username }}! <span class="wave">👋</span></h2>
@@ -97,8 +97,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
                     <div class="flex items-center space-x-4">
-                        <div class="p-3 bg-blue-100 rounded-lg">
-                            <i class="fas fa-id-card text-blue-600 text-xl"></i>
+                        <div class="p-3 bg-pink-100 rounded-lg">
+                            <i class="fas fa-id-card text-pink-600 text-xl"></i>
                         </div>
                         <div>
                             <p class="text-gray-500">Username</p>
@@ -120,7 +120,7 @@
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover">
                     <div class="flex items-center space-x-4">
                         <div class="p-3 bg-purple-100 rounded-lg">
-                            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            <i class="fas fa-envelope text-pink-600 text-xl"></i>
                         </div>
                         <div>
                             <p class="text-gray-500">Email</p>
@@ -138,7 +138,7 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-4">
                                 <div class="p-3 bg-indigo-100 rounded-lg">
-                                    <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                                    <i class="fas fa-graduation-cap text-pink-600 text-2xl"></i>
                                 </div>
                                 <div>
                                     <p class="font-semibold">eAkademik Portal</p>

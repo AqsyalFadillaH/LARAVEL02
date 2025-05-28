@@ -15,6 +15,7 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
             $table->string('faculty')->nullable();
             $table->string('major')->nullable();
+            $table->string('hobby')->nullable();
             $table->timestamps();
         });
     }
